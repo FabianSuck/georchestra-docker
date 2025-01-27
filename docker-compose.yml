@@ -120,7 +120,7 @@ services:
   header:
     image: georchestra/header:latest
     healthcheck:
-      test: ["CMD-SHELL", "curl -s -f http://localhost:8080/header/img/logo.png >/dev/null || exit 1"]
+      test: ["CMD-SHELL", "curl -s -f http://server2.fabian-s.de:8080/header/img/logo.png >/dev/null || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 10
@@ -140,7 +140,7 @@ services:
   geoserver:
     image: georchestra/geoserver:latest
     healthcheck:
-      test: ["CMD-SHELL", "curl -s -f http://localhost:8080/geoserver/gwc/service/wmts?SERVICE=WMTS&REQUEST=GetCapabilities >/dev/null || exit 1"]
+      test: ["CMD-SHELL", "curl -s -f http://server2.fabian-s.de:8080/geoserver/gwc/service/wmts?SERVICE=WMTS&REQUEST=GetCapabilities >/dev/null || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 10
@@ -196,7 +196,7 @@ services:
   geonetwork:
     image: georchestra/geonetwork:latest
     healthcheck:
-      test: ["CMD-SHELL", "curl -s -f http://localhost:8080/geonetwork/srv/eng/catalog.search >/dev/null || exit 1"]
+      test: ["CMD-SHELL", "curl -s -f http://server2.fabian-s.de:8080/geonetwork/srv/eng/catalog.search >/dev/null || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 10
@@ -224,7 +224,7 @@ services:
   datahub:
     image: geonetwork/geonetwork-ui-datahub:latest
     healthcheck:
-      test: ["CMD-SHELL", "curl -s -f http://localhost:80/datahub/ >/dev/null || exit 1"]
+      test: ["CMD-SHELL", "curl -s -f http://server2.fabian-s.de:80/datahub/ >/dev/null || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 10
@@ -242,7 +242,7 @@ services:
   analytics:
     image: georchestra/analytics:latest
     healthcheck:
-      test: ["CMD-SHELL", "curl -s -f http://localhost:8080/analytics/ >/dev/null || exit 1"]
+      test: ["CMD-SHELL", "curl -s -f http://server2.fabian-s.de:8080/analytics/ >/dev/null || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 10
@@ -262,7 +262,7 @@ services:
   mapstore:
     image: georchestra/mapstore:latest
     healthcheck:
-      test: ["CMD-SHELL", "curl -s -f http://localhost:8080/mapstore/configs/config.json >/dev/null || exit 1"]
+      test: ["CMD-SHELL", "curl -s -f http://server2.fabian-s.de:8080/mapstore/configs/config.json >/dev/null || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 10
@@ -301,7 +301,7 @@ services:
   datafeeder:
     image: georchestra/datafeeder:latest
     healthcheck:
-      test: ["CMD-SHELL", "curl -s -f http://localhost:8080/datafeeder >/dev/null || exit 1"]
+      test: ["CMD-SHELL", "curl -s -f http://server2.fabian-s.de:8080/datafeeder >/dev/null || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 10
@@ -349,7 +349,7 @@ services:
     volumes:
       - esdata:/usr/share/elasticsearch/data
     healthcheck:
-      test: ["CMD-SHELL", "curl -s -f http://localhost:9200/_cat/health >/dev/null || exit 1"]
+      test: ["CMD-SHELL", "curl -s -f http://server2.fabian-s.de:9200/_cat/health >/dev/null || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 10
@@ -367,7 +367,7 @@ services:
       elasticsearch:
         condition: service_healthy
     healthcheck:
-      test: ["CMD-SHELL", "curl -s -f http://localhost:5601/api/status >/dev/null || exit 1"]
+      test: ["CMD-SHELL", "curl -s -f http://server2.fabian-s.de:5601/api/status >/dev/null || exit 1"]
       interval: 30s
       timeout: 10s
       retries: 10
